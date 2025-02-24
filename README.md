@@ -221,9 +221,6 @@ if st.button("Get Answer"):
         st.write("Please upload a file and enter a query.")
 ```
 
-## Conclusion
-
-This application we used Streamlit, LangChain, FAISS, and Google's Generative AI to build a PDF query interface . 
 
 
 
