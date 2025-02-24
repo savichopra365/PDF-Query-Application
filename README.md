@@ -62,20 +62,12 @@ from langchain import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from transformers import AutoTokenizer, TextStreamer, pipeline
-from huggingface_hub import hf_hub_download
 from langchain.memory import ConversationBufferMemory
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 from langchain.document_loaders import PyPDFLoader
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.chains import RetrievalQA
-from langchain.prompts import PromptTemplate
-from langchain.memory import ConversationBufferMemory
-from langchain.vectorstores.faiss import FAISS
 from langchain.chains.question_answering import load_qa_chain
-from langchain import PromptTemplate
-from langchain.chains import RetrievalQA
 import io
 import torch
 import os
@@ -86,7 +78,7 @@ import streamlit as st
 
 ### Fixing SSL Issues
 
-The application configures the HTTP backend to fix SSL issues.
+o address SSL certificate issues, you can enhance the code by configuring the HTTP backend to ignore SSL verification. 
 
 ```python
 def backend_factory() -> requests.Session:
@@ -223,8 +215,5 @@ if st.button("Get Answer"):
 
 This application demonstrates how to build a PDF query interface using Streamlit, LangChain, FAISS, and Google's Generative AI. Users can upload PDF files, input queries, and receive answers based on the content of the uploaded documents.
 
-If you have any questions or need further assistance, feel free to reach out to Savi Chopra at savisavi2002@gmail.com.
 
----
 
-Feel free to customize the README file further to suit your needs! If you have any other questions or need additional assistance, let me know!
