@@ -1,7 +1,12 @@
 
-# PDF Query Application
-
-This application allows users to upload PDF files, input a query, and receive answers based on the content of the uploaded documents. The application is built using Streamlit for the UI, and it leverages LangChain, FAISS, and Google's Generative AI for the backend processing.
+# PDF Query Application Architecture
+PDF query Application architecture, based on RAG (Retrieval-Augmented Generation), consists of the following key components:
+# frontend: Developed using Next.js, the user interface allows patients to interact with the chatbot and view previous conversations. The frontend is integrated with ClerkAPI for user authentication.
+Backend: The Node.js backend handles requests from the frontend and interacts with the AI models to generate responses. It also routes API requests via an API Gateway and ensures the persistence of chat history.
+AI Models:
+LLM (Large Language Model): A Llama-2-70B-Chat-GGML model is used for conversation generation. This model is optimized for CPU-based execution and handles context-aware responses, taking into account past interactions.
+Vector Embeddings: Medical knowledge from "Harrison’s Principles of Internal Medicine" is stored as vector embeddings, which are used to search for relevant information using a vector database (FAISS).
+Database: The FAISS vector database is used to store and retrieve vector embeddings, which are critical for matching user prompts with relevant medical knowledge. This ensures fast and accurate responses based on the user's query.
 
 ## Prerequisites
 
@@ -78,7 +83,7 @@ import streamlit as st
 
 ### Fixing SSL Issues
 
-o address SSL certificate issues, you can enhance the code by configuring the HTTP backend to ignore SSL verification. 
+address SSL certificate issues, you can enhance the code by configuring the HTTP backend to ignore SSL verification. 
 
 ```python
 def backend_factory() -> requests.Session:
@@ -100,7 +105,7 @@ os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 ### Initializing Models and Chains
 
-The application initializes the embedding model, LLM model, and QA chain.
+The  initialization of the embedding model, LLM model, and QA chain.
 
 ```python
 embeddings_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
@@ -163,6 +168,7 @@ def load_data(uploaded_file):
 ### Splitting Text
 
 The `split_text` function splits the documents into smaller chunks.
+Chunk Size can increased or decreased as per requirement.
 
 ```python
 def split_text(docs):
@@ -173,7 +179,8 @@ def split_text(docs):
 
 ### Storing in Vector DB
 
-The `store_VDB` function stores the text chunks in a FAISS vector database.
+The `store_VDB` function stores the text embeddings in a vector database(FAISS). Vector DB helps in
+efficient retrieval.
 
 ```python
 def store_VDB(texts):
@@ -184,7 +191,7 @@ def store_VDB(texts):
 
 ### Querying the QA Chain
 
-The `query_qa_chain` function queries the QA chain with the user's query.
+The `query_qa_chain` function queries takes the user's query and uses LLM model to answer it.
 
 ```python
 def query_qa_chain(query):
@@ -213,7 +220,7 @@ if st.button("Get Answer"):
 
 ## Conclusion
 
-This application demonstrates how to build a PDF query interface using Streamlit, LangChain, FAISS, and Google's Generative AI. Users can upload PDF files, input queries, and receive answers based on the content of the uploaded documents.
+This application we used Streamlit, LangChain, FAISS, and Google's Generative AI to build a PDF query interface . 
 
 
 
