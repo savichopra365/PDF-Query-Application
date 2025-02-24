@@ -1,12 +1,15 @@
 
 # PDF Query Application Architecture
 PDF query Application architecture, based on RAG (Retrieval-Augmented Generation), consists of the following key components:
-# frontend: Developed using Next.js, the user interface allows patients to interact with the chatbot and view previous conversations. The frontend is integrated with ClerkAPI for user authentication.
-Backend: The Node.js backend handles requests from the frontend and interacts with the AI models to generate responses. It also routes API requests via an API Gateway and ensures the persistence of chat history.
-AI Models:
-LLM (Large Language Model): A Llama-2-70B-Chat-GGML model is used for conversation generation. This model is optimized for CPU-based execution and handles context-aware responses, taking into account past interactions.
-Vector Embeddings: Medical knowledge from "Harrison’s Principles of Internal Medicine" is stored as vector embeddings, which are used to search for relevant information using a vector database (FAISS).
-Database: The FAISS vector database is used to store and retrieve vector embeddings, which are critical for matching user prompts with relevant medical knowledge. This ensures fast and accurate responses based on the user's query.
+1. **Frontend: Developed using Streamlit**, the user interface allows users to upload PDF files, input queries, and view the generated answers. The frontend is designed to be user-friendly and interactive.
+
+2. **Backend**: The backend handles requests from the frontend and interacts with the AI models to generate responses. It processes the uploaded PDF files, splits the text into manageable chunks, and stores them in a vector database for efficient retrieval.
+
+3. **AI Models**:
+   - **LLM (Large Language Model)**: A ChatGoogleGenerativeAI model is used for generating responses. This model is optimized for handling context-aware responses, taking into account the content of the uploaded documents.
+   - **Vector Embeddings**: The content of the uploaded PDF documents is stored as vector embeddings using the HuggingFace Instruct Embeddings model. These embeddings are used to search for relevant information using a vector database (FAISS).
+
+4. **Database**: The FAISS vector database is used to store and retrieve vector embeddings, which are critical for matching user queries with relevant content from the uploaded PDF documents. This ensures fast and accurate responses based on the user's query.
 
 ## Prerequisites
 
