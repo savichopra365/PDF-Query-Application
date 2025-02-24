@@ -11,7 +11,7 @@ PDF query Application architecture, based on RAG (Retrieval-Augmented Generation
 
 4. **Database**: The FAISS vector database is used to store and retrieve vector embeddings, which are critical for matching user queries with relevant content from the uploaded PDF documents. This ensures fast and accurate responses based on the user's query.
 
-## Prerequisites
+## Dependencies
 
 Before running the application, ensure you have the following installed:
 
