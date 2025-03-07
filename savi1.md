@@ -31,18 +31,17 @@ It takes fake data from the generator as input and outputs a classification resu
 3. **ST Classifier:** The fake data is fed into the ST classifier, which has been pre-trained on the ST dataset.
 4. **Backtracking:** The ST classifier provides feedback to the generator to ensure the generated data is realistic and matches the class labels.
 
-
 **Loss function used** : **WGAN-GP loss**:  The WGAN-GP (Wasserstein GAN with Gradient Penalty) loss improves the stability of GAN training by penalizing the gradient norm of the discriminator's output with respect to its input, 
 ensuring it stays close to 1. This helps enforce the Lipschitz constraint, leading to better convergence and more realistic generated data.
 
 ### SETUP
    
 
-The objective of the generator is to fool the discriminator, while the discriminator aims to correctly classify real and fake data. This adversarial process continues until the generator produces data that is indistinguishable from real data.
-
-S2666920X24000961
+### References
+https://arxiv.org/search/stat?searchtype=author&query=Goodfellow,+I+J
 https://keras.io/
 https://www.tensorflow.org/tutorials/generative/dcgan
+https://arxiv.org/search/stat?searchtype=author&query=Xu,+B
 
 
 
