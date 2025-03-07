@@ -50,19 +50,28 @@ source venv/bin/activate   # On Windows use `venv\Scripts\activate`
 ```
 pip install numpy tensorflow scipy matplotlib seaborn scikit-learn pandas
 ```
-**Finetune generator for PAMAPP dataset generator for ST accelometer**
-'''
+**Finetuned model for LSM6DSL​ Data Fabrication**
+```
 pamap_latest_gan/generator_model_finetuned_LSM.h5
-'''
+```
 **Generator Model**
-'''pamap_latest_gan/generator_model.h5 '''
+```
+pamap_latest_gan/generator_model.h5 
+```
 
 **Discriminator Model**
-'''pamap_latest_gan/discriminator_model.h5 '''
+```
+pamap_latest_gan/discriminator_model.h5 
+```
 
 **Finetuned Model**
-''' pamap_latest_gan/generator_model_finetuned_LSM.h5 '''
-
+```
+pamap_latest_gan/generator_model_finetuned_LSM.h5 
+```
+**Command to run in command line**
+```
+python3 generateLsmSynthenticData.py --config configuration.json --out dataset
+```
 
 
 
