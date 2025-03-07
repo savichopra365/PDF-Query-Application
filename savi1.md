@@ -34,8 +34,38 @@ It takes fake data from the generator as input and outputs a classification resu
 **Loss function used** : **WGAN-GP loss**:  The WGAN-GP (Wasserstein GAN with Gradient Penalty) loss improves the stability of GAN training by penalizing the gradient norm of the discriminator's output with respect to its input, 
 ensuring it stays close to 1. This helps enforce the Lipschitz constraint, leading to better convergence and more realistic generated data.
 
-### SETUP
-   
+### Setup 
+system requirements --PYTHON
+key components to generate synthetic dataset -- our components
+PAMAPP DATA generator , PAMAPP data differentiator ,Finetune generator
+PAMAPP DATASET GENERATOR SPECIFIED TO ST ACCELEROMETER SPECIFICTIES (
+
+**Setup for Python**
+1. Create a virtual environment
+```
+python3 -m venv venv
+source venv/bin/activate   # On Windows use `venv\Scripts\activate`
+```
+2. Install the required dependencies
+```
+pip install numpy tensorflow scipy matplotlib seaborn scikit-learn pandas
+```
+**Finetune generator for PAMAPP dataset generator for ST accelometer**
+'''
+pamap_latest_gan/generator_model_finetuned_LSM.h5
+'''
+**Generator Model**
+'''pamap_latest_gan/generator_model.h5 '''
+
+**Discriminator Model**
+'''pamap_latest_gan/discriminator_model.h5 '''
+
+**Finetuned Model**
+''' pamap_latest_gan/generator_model_finetuned_LSM.h5 '''
+
+
+
+
 
 ### References
 https://arxiv.org/search/stat?searchtype=author&query=Goodfellow,+I+J
