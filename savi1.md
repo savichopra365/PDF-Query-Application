@@ -1,15 +1,11 @@
 
 
-# Generative Adversarial Networks (GANs)
+# Conditional Generative Adversarial Networks (CGANs)
+We have used CGANs as Conditional Generative Adversarial Networks (CGANs) are a powerful class of neural networks used for generating synthetic data that closely resembles real data, conditioned on additional information such as class labels. CGANs consist of two neural networks: a Generator that creates synthetic data from random noise and class labels, and a Discriminator that evaluates the authenticity of the data, distinguishing between real and synthetic samples while also considering the class labels. These networks are trained simultaneously in a competitive setting, where the Generator aims to fool the Discriminator, and the Discriminator aims to correctly identify real versus fake data. We fine-tune the classified data to map to STM32 required format (2G/4G/6G).
 
-## INTRODUCTION
+## Architecture of CGAN
+![image](https://github.com/user-attachments/assets/ec142ce8-5795-4dbf-9290-8f0a3cf8536a)
 
-We have used GAN as Generative Adversarial Networks (GANs) are a powerful class of neural networks used for generating synthetic data that closely resembles real data.Generative Adversarial Networks (GANs) consist of two neural networks: a Generator that creates synthetic data from random noise, and a Discriminator that evaluates the authenticity of the data, distinguishing between real and synthetic samples. These networks are trained simultaneously in a competitive setting, where the Generator
-aims to fool the Discriminator, and the Discriminator aims to correctly identify real versus fake data. We Fine-tune the classified data to map to STM32 required format (2G/4G/6G) .
-# Conditional Generative Adversarial Networks (CGANs) Architecture
-
-## Architecture Components
-![image](https://github.com/user-attachments/assets/a2401f67-c023-4fa9-a1f0-024d39212684)
 ### 1. Generator
 The generator in Conditional Generative Adversarial Networks (CGANs) is responsible for creating fake data from random noise, conditioned on additional information such as class labels. It takes a latent noise vector and class labels (e.g., stationary, walk, run) as input and produces fake data that resembles the real data distribution.
 
@@ -38,6 +34,8 @@ It takes fake data from the generator as input and outputs a classification resu
 
 **Loss function used** : **WGAN-GP loss**:  The WGAN-GP (Wasserstein GAN with Gradient Penalty) loss improves the stability of GAN training by penalizing the gradient norm of the discriminator's output with respect to its input, 
 ensuring it stays close to 1. This helps enforce the Lipschitz constraint, leading to better convergence and more realistic generated data.
+
+### SETUP
    
 
 The objective of the generator is to fool the discriminator, while the discriminator aims to correctly classify real and fake data. This adversarial process continues until the generator produces data that is indistinguishable from real data.
