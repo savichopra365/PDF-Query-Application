@@ -25,7 +25,7 @@ def backend_factory() -> requests.Session:
 configure_http_backend(backend_factory=backend_factory)
 
 # set GEMINI key
-os.environ["GOOGLE_API_KEY"] = "AIzaSyBByTcwGc-uT6VztSDytoMgd1GLSHkjWVg"
+os.environ["GOOGLE_API_KEY"] = " "
 
 # embeddings and model
 embeddings_model = GoogleGenerativeAIEmbeddings(
